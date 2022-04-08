@@ -5,17 +5,34 @@ package maze;
  * assigning one of two paths (left and up in this case) to all nodes except the row and column
  * furthest to the direction of movement (leftmost column and topmost row here). 
  * 
- * The only state to be maintained will be width and height, but I want the setup of the maze
+ * The only state to be maintained will be width, height, but I want the setup of the maze
  * to be static, so it will not change if it has to be accessed again, so I'm going to use a 
- * pseudorandom number generator.
+ * pseudorandom number generator with a seed. 
  * 
  * @author Jesse Woods
  *
  */
 
 public class binaryTreeMaze implements twoDeeOrthoMaze {
-
 	
+	/**
+	 * Stores the width of the maze.
+	 */
+	private int width;
+	
+	/**
+	 * Stores the height of the maze.
+	 */
+	private int height;
+	
+	/**
+	 * Stores the seed to be used in generating random values for the maze.
+	 */
+	private int seed;
+
+	public binaryTreeMaze(int seed) {
+		
+	}
 	
 	@Override
 	public int width() {
