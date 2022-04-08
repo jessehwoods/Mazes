@@ -31,6 +31,7 @@ public interface twoDeeOrthoMaze {
 	 * @param row is the row of the node to check.
 	 * @param column is the columns of the node to check.
 	 * @return whether there is an up path from this node.
+	 * @throws IllegalArgumentException if row or column is outside the maze limits.
 	 */
 	public boolean upPath(int row, int column);
 
@@ -39,6 +40,7 @@ public interface twoDeeOrthoMaze {
 	 * @param row is the row of the node to check.
 	 * @param column is the columns of the node to check.
 	 * @return whether there is a down path from this node.
+	 * @throws IllegalArgumentException if row or column is outside the maze limits.
 	 */
 	public boolean downPath(int row, int column);
 	
@@ -47,6 +49,7 @@ public interface twoDeeOrthoMaze {
 	 * @param row is the row of the node to check.
 	 * @param column is the columns of the node to check.
 	 * @return whether there is a left path from this node.
+	 * @throws IllegalArgumentException if row or column is outside the maze limits.
 	 */
 	public boolean leftPath(int row, int column);
 	
@@ -55,6 +58,7 @@ public interface twoDeeOrthoMaze {
 	 * @param row is the row of the node to check.
 	 * @param column is the columns of the node to check.
 	 * @return whether there is a right path from this node.
+	 * @throws IllegalArgumentException if row or column is outside the maze limits.
 	 */
 	public boolean rightPath(int row, int column);
 	
