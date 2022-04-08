@@ -12,7 +12,7 @@ package maze;
  * @author Jesse Woods
  *
  */
-public interface twoDeeOrthoMaze {
+public interface TwoDeeOrthoMaze {
 
 	/**
 	 * Tells you how many columns are in the maze.
