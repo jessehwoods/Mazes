@@ -56,8 +56,12 @@ public class BinaryTreeMaze implements TwoDeeOrthoMaze {
 	public boolean upPath(int row, int column) {
 		//Throw an exception if node is invalid
 		validateCoordinates(row, column);
-		// TODO Auto-generated method stub
-		return false;
+		//Check if this is the root (0,0), because that coordinate has neither a left nor up path.
+		if(row == 0 && column == 0) {
+			return false;
+		}
+		//Otherwise, every location has to be either left or up, so just return the opposite of left
+		return !leftPath(row, column);
 	}
 
 	@Override
@@ -76,8 +80,16 @@ public class BinaryTreeMaze implements TwoDeeOrthoMaze {
 	public boolean leftPath(int row, int column) {
 		//Throw an exception if node is invalid
 		validateCoordinates(row, column);
-		// TODO Auto-generated method stub
-		return false;
+		//If it's the top row, then if has to be left
+		if(row == 0) {
+			return true;
+		}
+		//If it's the leftmost column, then it cannot be going left
+		if(column == 0) {
+			return false;
+		}
+		//Otherwise, use the pseudorandom generator
+		return pseudoRandomBoolean();
 	}
 
 	@Override
@@ -96,7 +108,7 @@ public class BinaryTreeMaze implements TwoDeeOrthoMaze {
 	 * 
 	 * @return a pseudorandom value of true or false based on the stored seed.
 	 */
-	private int pseudoRandomBoolean() {
+	private boolean pseudoRandomBoolean() {
 		//TODO
 	}
 	
