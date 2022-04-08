@@ -88,8 +88,9 @@ public class BinaryTreeMaze implements TwoDeeOrthoMaze {
 		if(column == 0) {
 			return false;
 		}
-		//Otherwise, use the pseudorandom generator
-		return pseudoRandomBoolean();
+		//Otherwise, use the pseudorandom generator, which should only be used here so that
+		//the other path methods can derive their values from leftPath()
+		return pseudoRandomBoolean(row, column);
 	}
 
 	@Override
@@ -105,10 +106,18 @@ public class BinaryTreeMaze implements TwoDeeOrthoMaze {
 	}
 	
 	/**
+	 * Generates a pseudorandom boolean based on the height, width, and random seed of the maze,
+	 * the requested row, and the requested column. Because this is not random, the results for the same 
+	 * coordinate of the same maze will always be the same. 
 	 * 
+	 * However, it will only have a single output for any given coordinate.
+	 *
+	 * This uses a linear congruential sequence. I'll be using the closed form equation:
+	 * X_n+k = (akX_n + (a^k − 1)c/b) mod m, k ≥ 0, n ≥ 0
+	 *
 	 * @return a pseudorandom value of true or false based on the stored seed.
 	 */
-	private boolean pseudoRandomBoolean() {
+	private boolean pseudoRandomBoolean(int row, int column) {
 		//TODO
 	}
 	
