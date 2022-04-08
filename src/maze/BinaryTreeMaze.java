@@ -2,7 +2,7 @@ package maze;
 
 /**
  * Implements the binary tree maze generation algorithm, which generates the maze by randomly
- * assigning one of two paths (left and up in this case) to all nodes except the row and column
+ * assigning one of two paths (left or up in this case) to all nodes except the row and column
  * furthest to the direction of movement (leftmost column and topmost row here). 
  * 
  * The only state to be maintained will be width, height, but I want the setup of the maze
@@ -54,35 +54,64 @@ public class BinaryTreeMaze implements TwoDeeOrthoMaze {
 
 	@Override
 	public boolean upPath(int row, int column) {
+		//Throw an exception if node is invalid
+		validateCoordinates(row, column);
 		// TODO Auto-generated method stub
 		return false;
 	}
 
 	@Override
 	public boolean downPath(int row, int column) {
-		//TODO
-		return false;
+		//Throw an exception if node is invalid
+		validateCoordinates(row, column);
+		//If this is the lowest row, then there cannot be a path down
+		if(row == height - 1) {
+			return false;
+		}
+		//Otherwise, we just check if the next cell down has an up path
+		return upPath(row + 1, column);
 	}
 
 	@Override
 	public boolean leftPath(int row, int column) {
+		//Throw an exception if node is invalid
+		validateCoordinates(row, column);
 		// TODO Auto-generated method stub
 		return false;
 	}
 
 	@Override
 	public boolean rightPath(int row, int column) {
-		// TODO Auto-generated method stub
-		return false;
+		//Throw an exception if node is invalid
+		validateCoordinates(row, column);
+		// If this is the rightmost columns, then there can't be a right path
+		if(column == column - 1) {
+			return false;
+		}
+		//Otherwise, check if the right neighbor has a leftward path
+		return leftPath(row, column + 1);
 	}
 	
 	/**
 	 * 
-	 * @return a pseudorandom number based on the stored seed.
+	 * @return a pseudorandom value of true or false based on the stored seed.
 	 */
-	private int pseudoRandomNumber() {
+	private int pseudoRandomBoolean() {
 		//TODO
-	}	
-
+	}
+	
+	/**
+	 * Method to throw an exception if the given row and column are not in the maze limits.
+	 * 
+	 * Should be called any time a set of coordinates is entered.
+	 */
+	private void validateCoordinates(int row, int column) {
+		if(row >= height) {
+			throw new IllegalArgumentException("The provided row is outside the maze.");
+		} 
+		else if(column >= width) {
+			throw new IllegalArgumentException("The provided column is outside the maze.");
+		}
+	}
 
 }
