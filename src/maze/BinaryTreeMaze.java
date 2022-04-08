@@ -118,10 +118,10 @@ public class BinaryTreeMaze implements TwoDeeOrthoMaze {
 	 * Should be called any time a set of coordinates is entered.
 	 */
 	private void validateCoordinates(int row, int column) {
-		if(row >= height) {
+		if(row >= height || row < 0) {
 			throw new IllegalArgumentException("The provided row is outside the maze.");
 		} 
-		else if(column >= width) {
+		else if(column >= width || column < 0) {
 			throw new IllegalArgumentException("The provided column is outside the maze.");
 		}
 	}
