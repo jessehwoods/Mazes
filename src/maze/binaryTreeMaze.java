@@ -30,20 +30,26 @@ public class binaryTreeMaze implements twoDeeOrthoMaze {
 	 */
 	private int seed;
 
-	public binaryTreeMaze(int seed) {
-		
+	/**
+	 * Paramaterized constructor including seed to be used in pseudorandom number generator.
+	 * @param height height of the maze to be generated.
+	 * @param width width of the maze to be generated.
+	 * @param seed seed to be used in pseudorandom number generation.
+	 */
+	public binaryTreeMaze(int height, int width, int seed) {
+		this.height = height;
+		this.width = width;
+		this.seed = seed;
 	}
 	
 	@Override
 	public int width() {
-		// TODO Auto-generated method stub
-		return 0;
+		return this.width;
 	}
 
 	@Override
 	public int height() {
-		// TODO Auto-generated method stub
-		return 0;
+		return this.height;
 	}
 
 	@Override
@@ -54,7 +60,8 @@ public class binaryTreeMaze implements twoDeeOrthoMaze {
 
 	@Override
 	public boolean downPath(int row, int column) {
-		// TODO Auto-generated method stub
+		//If this is the bottom edge of the map, there is no path down
+		//Whether there is a downpath is determined by whether the lower cell has an up path
 		return false;
 	}
 
@@ -69,5 +76,14 @@ public class binaryTreeMaze implements twoDeeOrthoMaze {
 		// TODO Auto-generated method stub
 		return false;
 	}
+	
+	/**
+	 * 
+	 * @return a pseudo random number based on the stored seed.
+	 */
+	private int pseudoRandomNumber() {
+		//TODO
+	}
+
 
 }
