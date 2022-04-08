@@ -6,8 +6,8 @@ package maze;
  * orthogonal (up, down, left, right) connections, and all paths can be assumed 
  * to be two-way (so if (0,0) connects to (0,1), then the reverse is also true).
  * 
- * The nodes are assumed to be on a 2d plane with the coordinate (0,0) at the uppermost,
- * leftmost position. 
+ * The nodes are assumed to be on a 2d plane with the coordinate (0,0) at the topmost,
+ * leftmost position. So an adding to row moves downward and add to column moves right.
  * 
  * @author Jesse Woods
  *

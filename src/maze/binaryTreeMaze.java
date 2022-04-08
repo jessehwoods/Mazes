@@ -60,12 +60,7 @@ public class binaryTreeMaze implements twoDeeOrthoMaze {
 
 	@Override
 	public boolean downPath(int row, int column) {
-		//If this is the bottom edge of the maze, there is no path down
-		if(row == row - 1) {
-			return false;
-		}
-		//Whether there is a downward path is determined by whether the lower cell has an up path
-		return upPath(row + 1, column);
+		//TODO
 	}
 
 	@Override
