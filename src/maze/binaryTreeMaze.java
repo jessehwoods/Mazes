@@ -76,11 +76,55 @@ public class binaryTreeMaze implements twoDeeOrthoMaze {
 	}
 	
 	/**
+	 * An abstract class that will be instantiated in versions for up, down, left, and right, to ensure taht
+	 * they all use comparable logic and validation procedures.
 	 * 
-	 * @return a pseudorandom number based on the stored seed.
+	 * @author Jesse Woods
+	 *
 	 */
-	private int pseudoRandomNumber() {
-		//TODO
+	private abstract static class PathFinder {
+		
+		/**
+		 * External method that is the access point for determining if a node has a desire path by the
+		 * methods of binaryTreeMaze.
+		 * @param row is the row of the node to examine.
+		 * @param column is the column of the node to examine.
+		 * @param height is the height of the maze.
+		 * @param width is the width of the maze.
+		 * @param seed is the seed to be used by the pseudorandom number generator.
+		 * @return true if the requested path type exists, false if it does not.
+		 */
+		protected boolean isPath(int row, int column, int height, int width, int seed) {
+			//Make sure the node coordinates are valid for the size of the map
+			if(row >= height || column >= width) {
+				throw new IllegalArgumentException("That node is outside the maze.");
+			}
+			//Pass it to the method used for this inquiry
+			return calculatePath(row, column, height, width, seed);
+		}
+
+		/**
+		 * This is the method that will need to be overriden and filled in with content by the sub-classes, 
+		 * where the logic for figuring out what to do will reside.
+		 * @param row is the row of the node to examine.
+		 * @param column is the column of the node to examine.
+		 * @param height is the height of the maze.
+		 * @param width is the width of the maze.
+		 * @param seed is the seed to be used by the pseudorandom number generator.
+		 * @return true if the requested path type exists, false if it does not.
+		 */
+		private static boolean calculatePath(int row, int column, int height, int width, int seed) {
+			return false;
+		}
+
+		/**
+		 * 
+		 * @return a pseudorandom number based on the stored seed.
+		 */
+		private int pseudoRandomNumber() {
+			//TODO
+		}	
+		
 	}
 
 }
