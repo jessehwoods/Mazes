@@ -87,22 +87,59 @@ public class BinaryTreeMazeTest {
 	
 	@Test
 	public void testLeftPath() {
-		fail("Not yet implemented");
+		//Test the alwaysLeftMaze
+		
+		//Test the alwaysUpMaze
+		
+		//Test the alternatingLeftUpMaze
+		
 	}
 	
 	@Test
 	public void testRightPath() {
-		fail("Not yet implemented");
+		//Test the alwaysLeftMaze, it should always have a right path other than the rightmost column
+		for(int i = 0; i < alwaysLeftMazeHeight; i++) {
+			for(int j = 0; j < alwaysLeftMazeWidth - 1; j++) {
+				//This will cover all the cells in the row except the rightmost
+				assertTrue(alwaysLeftMaze.rightPath(i, j));
+			}
+			//This last one will be the rightmost cell of each row
+			assertFalse(alwaysLeftMaze.rightPath(i, alwaysLeftMazeWidth - 1)); 
+		}
+		
+		//Test the alwaysUpMaze, it should always return false except on the top row
+		//Start with the top row, it should be true for all
+		for(int i = 0; i < alwaysUpMazeWidth; i++) {
+			assertTrue(alwaysLeftMaze.rightPath(0, i)); 
+		}
+		//Starting on i = 1 to omit the top row
+		for(int i = 1; i < alwaysUpMazeHeight; i++) {
+			for(int j = 0; j < alwaysUpMazeWidth; j++) {
+				assertFalse(alwaysUpMaze.rightPath(i, j));
+			}
+		}
+		//Test the alternatingLeftUpMaze, it is 6 x 5
+		
 	}
 	
 	@Test
 	public void testUpPath() {
-		fail("Not yet implemented");
+		//Test the alwaysLeftMaze
+		
+		//Test the alwaysUpMaze
+		
+		//Test the alternatingLeftUpMaze
+		
 	}
 	
 	@Test
 	public void testDownPath() {
-		fail("Not yet implemented");
+		//Test the alwaysLeftMaze
+		
+		//Test the alwaysUpMaze
+		
+		//Test the alternatingLeftUpMaze
+		
 	}
 
 }
