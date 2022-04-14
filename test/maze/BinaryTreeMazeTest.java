@@ -192,7 +192,7 @@ public class BinaryTreeMazeTest {
 			assertTrue(alwaysLeftMaze.downPath(i, 0));
 		}
 		//Check bottom cell of leftmost column
-		assertFalse(alwaysLeftMaze.downPath(alwaysLeftMazeHeight, 0));
+		assertFalse(alwaysLeftMaze.downPath(alwaysLeftMazeHeight - 1, 0));
 		//Check all rows, leaving out the leftmost column
 		for(int i = 0; i < alwaysLeftMazeHeight; i++ ) {
 			//j is initialize to 1 to omit leftmost column
@@ -215,6 +215,286 @@ public class BinaryTreeMazeTest {
 		
 		//Test the alternatingLeftUpMaze
 		//TODO
+		
+	}
+	
+	@Test
+	public void testInvalidLeftPath() {
+		//Always left maze
+		try {
+			alwaysLeftMaze.leftPath(-1, 0);
+		} catch (Exception e) {
+			assertTrue(e instanceof IllegalArgumentException);
+		}
+		try {
+			alwaysLeftMaze.leftPath(0, -1);
+		} catch (Exception e) {
+			assertTrue(e instanceof IllegalArgumentException);
+		}
+		try {
+			alwaysLeftMaze.leftPath(alwaysLeftMazeHeight, 0);
+		} catch (Exception e) {
+			assertTrue(e instanceof IllegalArgumentException);
+		}
+		try {
+			alwaysLeftMaze.leftPath(0, alwaysLeftMazeWidth);
+		} catch (Exception e) {
+			assertTrue(e instanceof IllegalArgumentException);
+		}
+		
+		//Always up maze
+		try {
+			alwaysUpMaze.leftPath(-1, 0);
+		} catch (Exception e) {
+			assertTrue(e instanceof IllegalArgumentException);
+		}
+		try {
+			alwaysUpMaze.leftPath(0, -1);
+		} catch (Exception e) {
+			assertTrue(e instanceof IllegalArgumentException);
+		}
+		try {
+			alwaysUpMaze.leftPath(alwaysUpMazeHeight, 0);
+		} catch (Exception e) {
+			assertTrue(e instanceof IllegalArgumentException);
+		}
+		try {
+			alwaysUpMaze.leftPath(0, alwaysUpMazeWidth);
+		} catch (Exception e) {
+			assertTrue(e instanceof IllegalArgumentException);
+		}
+		
+		//Alternating maze
+		try {
+			alternatingLeftUpMaze.leftPath(-1, 0);
+		} catch (Exception e) {
+			assertTrue(e instanceof IllegalArgumentException);
+		}
+		try {
+			alternatingLeftUpMaze.leftPath(0, -1);
+		} catch (Exception e) {
+			assertTrue(e instanceof IllegalArgumentException);
+		}
+		try {
+			alternatingLeftUpMaze.leftPath(alternatingLeftUpMazeHeight, 0);
+		} catch (Exception e) {
+			assertTrue(e instanceof IllegalArgumentException);
+		}
+		try {
+			alternatingLeftUpMaze.leftPath(0, alternatingLeftUpMazeWidth);
+		} catch (Exception e) {
+			assertTrue(e instanceof IllegalArgumentException);
+		}
+		
+	}
+	
+	@Test
+	public void testInvalidRightPath() {
+		//Always left maze
+		try {
+			alwaysLeftMaze.rightPath(-1, 0);
+		} catch (Exception e) {
+			assertTrue(e instanceof IllegalArgumentException);
+		}
+		try {
+			alwaysLeftMaze.rightPath(0, -1);
+		} catch (Exception e) {
+			assertTrue(e instanceof IllegalArgumentException);
+		}
+		try {
+			alwaysLeftMaze.rightPath(alwaysLeftMazeHeight, 0);
+		} catch (Exception e) {
+			assertTrue(e instanceof IllegalArgumentException);
+		}
+		try {
+			alwaysLeftMaze.rightPath(0, alwaysLeftMazeWidth);
+		} catch (Exception e) {
+			assertTrue(e instanceof IllegalArgumentException);
+		}
+		
+		//Always up maze
+		try {
+			alwaysUpMaze.rightPath(-1, 0);
+		} catch (Exception e) {
+			assertTrue(e instanceof IllegalArgumentException);
+		}
+		try {
+			alwaysUpMaze.rightPath(0, -1);
+		} catch (Exception e) {
+			assertTrue(e instanceof IllegalArgumentException);
+		}
+		try {
+			alwaysUpMaze.rightPath(alwaysUpMazeHeight, 0);
+		} catch (Exception e) {
+			assertTrue(e instanceof IllegalArgumentException);
+		}
+		try {
+			alwaysUpMaze.rightPath(0, alwaysUpMazeWidth);
+		} catch (Exception e) {
+			assertTrue(e instanceof IllegalArgumentException);
+		}
+		
+		//Alternating maze
+		try {
+			alternatingLeftUpMaze.rightPath(-1, 0);
+		} catch (Exception e) {
+			assertTrue(e instanceof IllegalArgumentException);
+		}
+		try {
+			alternatingLeftUpMaze.rightPath(0, -1);
+		} catch (Exception e) {
+			assertTrue(e instanceof IllegalArgumentException);
+		}
+		try {
+			alternatingLeftUpMaze.rightPath(alternatingLeftUpMazeHeight, 0);
+		} catch (Exception e) {
+			assertTrue(e instanceof IllegalArgumentException);
+		}
+		try {
+			alternatingLeftUpMaze.rightPath(0, alternatingLeftUpMazeWidth);
+		} catch (Exception e) {
+			assertTrue(e instanceof IllegalArgumentException);
+		}
+		
+	}
+	
+	@Test
+	public void testInvalidUpPath() {
+		//Always left maze
+		try {
+			alwaysLeftMaze.upPath(-1, 0);
+		} catch (Exception e) {
+			assertTrue(e instanceof IllegalArgumentException);
+		}
+		try {
+			alwaysLeftMaze.upPath(0, -1);
+		} catch (Exception e) {
+			assertTrue(e instanceof IllegalArgumentException);
+		}
+		try {
+			alwaysLeftMaze.upPath(alwaysLeftMazeHeight, 0);
+		} catch (Exception e) {
+			assertTrue(e instanceof IllegalArgumentException);
+		}
+		try {
+			alwaysLeftMaze.upPath(0, alwaysLeftMazeWidth);
+		} catch (Exception e) {
+			assertTrue(e instanceof IllegalArgumentException);
+		}
+		
+		//Always up maze
+		try {
+			alwaysUpMaze.upPath(-1, 0);
+		} catch (Exception e) {
+			assertTrue(e instanceof IllegalArgumentException);
+		}
+		try {
+			alwaysUpMaze.upPath(0, -1);
+		} catch (Exception e) {
+			assertTrue(e instanceof IllegalArgumentException);
+		}
+		try {
+			alwaysUpMaze.upPath(alwaysUpMazeHeight, 0);
+		} catch (Exception e) {
+			assertTrue(e instanceof IllegalArgumentException);
+		}
+		try {
+			alwaysUpMaze.upPath(0, alwaysUpMazeWidth);
+		} catch (Exception e) {
+			assertTrue(e instanceof IllegalArgumentException);
+		}
+		
+		//Alternating maze
+		try {
+			alternatingLeftUpMaze.upPath(-1, 0);
+		} catch (Exception e) {
+			assertTrue(e instanceof IllegalArgumentException);
+		}
+		try {
+			alternatingLeftUpMaze.upPath(0, -1);
+		} catch (Exception e) {
+			assertTrue(e instanceof IllegalArgumentException);
+		}
+		try {
+			alternatingLeftUpMaze.upPath(alternatingLeftUpMazeHeight, 0);
+		} catch (Exception e) {
+			assertTrue(e instanceof IllegalArgumentException);
+		}
+		try {
+			alternatingLeftUpMaze.upPath(0, alternatingLeftUpMazeWidth);
+		} catch (Exception e) {
+			assertTrue(e instanceof IllegalArgumentException);
+		}
+		
+	}
+	
+	@Test
+	public void testInvalidDownPath() {
+		//Always left maze
+		try {
+			alwaysLeftMaze.downPath(-1, 0);
+		} catch (Exception e) {
+			assertTrue(e instanceof IllegalArgumentException);
+		}
+		try {
+			alwaysLeftMaze.downPath(0, -1);
+		} catch (Exception e) {
+			assertTrue(e instanceof IllegalArgumentException);
+		}
+		try {
+			alwaysLeftMaze.downPath(alwaysLeftMazeHeight, 0);
+		} catch (Exception e) {
+			assertTrue(e instanceof IllegalArgumentException);
+		}
+		try {
+			alwaysLeftMaze.downPath(0, alwaysLeftMazeWidth);
+		} catch (Exception e) {
+			assertTrue(e instanceof IllegalArgumentException);
+		}
+		
+		//Always up maze
+		try {
+			alwaysUpMaze.downPath(-1, 0);
+		} catch (Exception e) {
+			assertTrue(e instanceof IllegalArgumentException);
+		}
+		try {
+			alwaysUpMaze.downPath(0, -1);
+		} catch (Exception e) {
+			assertTrue(e instanceof IllegalArgumentException);
+		}
+		try {
+			alwaysUpMaze.downPath(alwaysUpMazeHeight, 0);
+		} catch (Exception e) {
+			assertTrue(e instanceof IllegalArgumentException);
+		}
+		try {
+			alwaysUpMaze.downPath(0, alwaysUpMazeWidth);
+		} catch (Exception e) {
+			assertTrue(e instanceof IllegalArgumentException);
+		}
+		
+		//Alternating maze
+		try {
+			alternatingLeftUpMaze.downPath(-1, 0);
+		} catch (Exception e) {
+			assertTrue(e instanceof IllegalArgumentException);
+		}
+		try {
+			alternatingLeftUpMaze.downPath(0, -1);
+		} catch (Exception e) {
+			assertTrue(e instanceof IllegalArgumentException);
+		}
+		try {
+			alternatingLeftUpMaze.downPath(alternatingLeftUpMazeHeight, 0);
+		} catch (Exception e) {
+			assertTrue(e instanceof IllegalArgumentException);
+		}
+		try {
+			alternatingLeftUpMaze.downPath(0, alternatingLeftUpMazeWidth);
+		} catch (Exception e) {
+			assertTrue(e instanceof IllegalArgumentException);
+		}
 		
 	}
 
