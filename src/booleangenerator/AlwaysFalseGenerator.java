@@ -6,7 +6,7 @@ package booleangenerator;
  * @author Jesse Woods
  *
  */
-public class AlwaysFalse implements BooleanGenerator{
+public class AlwaysFalseGenerator implements BooleanGenerator{
 
 	@Override
 	public boolean getBoolean(int kValue) {
