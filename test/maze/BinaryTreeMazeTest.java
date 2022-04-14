@@ -118,6 +118,7 @@ public class BinaryTreeMazeTest {
 				assertFalse(alwaysUpMaze.rightPath(i, j));
 			}
 		}
+		
 		//Test the alternatingLeftUpMaze, it is 6 x 5
 		
 	}

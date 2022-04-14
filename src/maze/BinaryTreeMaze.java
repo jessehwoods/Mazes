@@ -100,7 +100,7 @@ public class BinaryTreeMaze implements TwoDeeOrthoMaze {
 		//Throw an exception if node is invalid
 		validateCoordinates(row, column);
 		// If this is the rightmost columns, then there can't be a right path
-		if(column == column - 1) {
+		if(column == width - 1) {
 			return false;
 		}
 		//Otherwise, check if the right neighbor has a leftward path
