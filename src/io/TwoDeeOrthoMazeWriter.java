@@ -4,7 +4,6 @@ import maze.TwoDeeOrthoMaze;
 
 /**
  * Takes a twoDeeOrthMaze object and creates a String representation of it.
- * Represents walls as #'s, nodes as O's and paths as whitespace.
  * 
  * @author Jesse Woods
  *
@@ -49,8 +48,8 @@ public class TwoDeeOrthoMazeWriter {
 	 * Called to get a string representation of the maze. 
 	 * 
 	 * Each node will be in the center of a 3x3 grid. If there is a path up, down, left, or right from the
-	 * node, then that space will be empty. If there is no path, then there will be a hash mark to represent
-	 * the wall there.
+	 * node, then there will be a path character, defined above. If there is a wall, there will be a wall 
+	 * character.
 	 * 
 	 * @return
 	 */
