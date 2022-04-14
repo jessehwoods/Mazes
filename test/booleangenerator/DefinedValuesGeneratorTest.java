@@ -5,6 +5,13 @@ import static org.junit.Assert.*;
 import org.junit.Before;
 import org.junit.Test;
 
+/**
+ * Test class for the DefinedValuesGenerator. Takes in an array of boolean values and then loops
+ * over that based on the integer input.
+ * 
+ * @author Jesse Woods
+ *
+ */
 public class DefinedValuesGeneratorTest {
 
 	/**

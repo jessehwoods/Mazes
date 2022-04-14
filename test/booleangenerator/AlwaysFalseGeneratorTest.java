@@ -5,6 +5,13 @@ import static org.junit.Assert.*;
 import org.junit.Before;
 import org.junit.Test;
 
+/**
+ * Test class for the AlwaysFalseGenerator. Should return false on any input, and throw an exception on
+ * a negative input.
+ * 
+ * @author Jesse Woods
+ *
+ */
 public class AlwaysFalseGeneratorTest {
 
 	/**
