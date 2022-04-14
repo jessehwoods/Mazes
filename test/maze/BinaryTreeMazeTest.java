@@ -99,15 +99,19 @@ public class BinaryTreeMazeTest {
 			}
 		}
 		
-		//Test the alwaysUpMaze, should be false everywhere except the topmost row
-		//Start with the top row, it should be true for all
+		//Test the alwaysUpMaze, should be false everywhere except the topmost row, except the root
+		//Check the root, should be false
+		assertFalse(alwaysUpMaze.leftPath(0, 0));
+		//Now the top row, it should be true for all
 		for(int i = 0; i < alwaysUpMazeWidth; i++) {
-			assertTrue(alwaysLeftMaze.rightPath(0, i)); 
+			if(i != 0) {
+				assertTrue(alwaysUpMaze.leftPath(0, i));
+			}
 		}
 		//Starting on i = 1 to omit the top row
 		for(int i = 1; i < alwaysUpMazeHeight; i++) {
 			for(int j = 0; j < alwaysUpMazeWidth; j++) {
-				assertFalse(alwaysUpMaze.rightPath(i, j));
+				assertFalse(alwaysUpMaze.leftPath(i, j));
 			}
 		}
 		
@@ -128,11 +132,13 @@ public class BinaryTreeMazeTest {
 			assertFalse(alwaysLeftMaze.rightPath(i, alwaysLeftMazeWidth - 1)); 
 		}
 		
-		//Test the alwaysUpMaze, it should always return false except on the top row
+		//Test the alwaysUpMaze, it should always return false except on the top row until the last cell
 		//Start with the top row, it should be true for all
-		for(int i = 0; i < alwaysUpMazeWidth; i++) {
-			assertTrue(alwaysLeftMaze.rightPath(0, i)); 
+		for(int i = 0; i < alwaysUpMazeWidth - 1; i++) {
+			assertTrue(alwaysUpMaze.rightPath(0, i)); 
 		}
+		//Get the last cell of the top row
+		assertFalse(alwaysUpMaze.rightPath(0, alwaysUpMazeWidth - 1));
 		//Starting on i = 1 to omit the top row
 		for(int i = 1; i < alwaysUpMazeHeight; i++) {
 			for(int j = 0; j < alwaysUpMazeWidth; j++) {
@@ -147,9 +153,31 @@ public class BinaryTreeMazeTest {
 	
 	@Test
 	public void testUpPath() {
-		//Test the alwaysLeftMaze
+		//Test the alwaysLeftMaze, should be false for all except leftmost column except root
+		//Start with root
+		assertFalse(alwaysLeftMaze.upPath(0, 0));
+		for(int i = 0; i < alwaysLeftMazeHeight; i++) {
+			//cover the leftmost column for anything but root
+			if(i != 0) {
+				assertTrue(alwaysLeftMaze.upPath(i, 0));
+			}
+			//j will be initialized to 1 to avoid the leftmost column
+			for(int j = 1; j < alwaysLeftMazeWidth; j++) {
+				assertFalse(alwaysLeftMaze.upPath(i, j));
+			}
+		}
 		
-		//Test the alwaysUpMaze
+		//Test the alwaysUpMaze, should be true for all except topmost row
+		//Start with the top row, it should be false for all
+		for(int i = 0; i < alwaysUpMazeWidth; i++) {
+			assertFalse(alwaysUpMaze.upPath(0, i)); 
+		}
+		//Starting on i = 1 to omit the top row
+		for(int i = 1; i < alwaysUpMazeHeight; i++) {
+			for(int j = 0; j < alwaysUpMazeWidth; j++) {
+				assertTrue(alwaysUpMaze.upPath(i, j));
+			}
+		}
 		
 		//Test the alternatingLeftUpMaze
 		//TODO
@@ -158,9 +186,32 @@ public class BinaryTreeMazeTest {
 	
 	@Test
 	public void testDownPath() {
-		//Test the alwaysLeftMaze
+		//Test the alwaysLeftMaze, should be false for all except leftmost column except bottommost leftmost cell
+		//Check leftmost column except bottommost cell
+		for(int i = 0; i < alwaysLeftMazeHeight - 1; i++) {
+			assertTrue(alwaysLeftMaze.downPath(i, 0));
+		}
+		//Check bottom cell of leftmost column
+		assertFalse(alwaysLeftMaze.downPath(alwaysLeftMazeHeight, 0));
+		//Check all rows, leaving out the leftmost column
+		for(int i = 0; i < alwaysLeftMazeHeight; i++ ) {
+			//j is initialize to 1 to omit leftmost column
+			for(int j = 1; j < alwaysLeftMazeWidth ; j++) {
+				assertFalse(alwaysLeftMaze.downPath(i, j));
+			}
+		}
 		
-		//Test the alwaysUpMaze
+		//Test the alwaysUpMaze, should be true for all except the bottom row
+		//Test all rows, minus the bottommost
+		for(int i = 0; i < alwaysUpMazeHeight - 1; i++) { //Stopping before the bottom row
+			for (int j = 0; j < alwaysUpMazeWidth; j++) {
+				assertTrue(alwaysUpMaze.downPath(i, j));
+			}
+		}
+		//Now test the bottom row
+		for(int i = 0; i < alwaysUpMazeWidth; i++) {
+			assertFalse(alwaysUpMaze.downPath(alwaysUpMazeHeight - 1, i));
+		}		
 		
 		//Test the alternatingLeftUpMaze
 		//TODO
