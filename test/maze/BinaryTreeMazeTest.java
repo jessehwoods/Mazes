@@ -88,11 +88,31 @@ public class BinaryTreeMazeTest {
 	
 	@Test
 	public void testLeftPath() {
-		//Test the alwaysLeftMaze
+		//Test the alwaysLeftMaze, should be true everywhere except the leftmost column
+		//i will iterate the rows
+		for(int i = 0; i < alwaysLeftMazeHeight; i++) {
+			//This one will be the leftmost cell of each row
+			assertFalse(alwaysLeftMaze.leftPath(i, 0)); 
+			//j will be initialized to 1 to skip the first cell in each row
+			for(int j = 1; j < alwaysLeftMazeWidth; j++) {
+				assertTrue(alwaysLeftMaze.leftPath(i, j));
+			}
+		}
 		
-		//Test the alwaysUpMaze
+		//Test the alwaysUpMaze, should be false everywhere except the topmost row
+		//Start with the top row, it should be true for all
+		for(int i = 0; i < alwaysUpMazeWidth; i++) {
+			assertTrue(alwaysLeftMaze.rightPath(0, i)); 
+		}
+		//Starting on i = 1 to omit the top row
+		for(int i = 1; i < alwaysUpMazeHeight; i++) {
+			for(int j = 0; j < alwaysUpMazeWidth; j++) {
+				assertFalse(alwaysUpMaze.rightPath(i, j));
+			}
+		}
 		
 		//Test the alternatingLeftUpMaze
+		//TODO
 		
 	}
 	
@@ -120,7 +140,8 @@ public class BinaryTreeMazeTest {
 			}
 		}
 		
-		//Test the alternatingLeftUpMaze, it is 6 x 5
+		//Test the alternatingLeftUpMaze
+		//TODO
 		
 	}
 	
