@@ -10,9 +10,10 @@ public interface BooleanGenerator {
 
 	/**
 	 * returns a boolean value according to a defined method.
-	 * @return boolean value.
+	 * @param kValue is an integer that can be used in generating the boolean, so that it can be accessed again later.
+	 * @return a boolean value based on the kValue.
 	 */
-	public boolean getBoolean();
+	public boolean getBoolean(int kValue);
 	
 	
 }

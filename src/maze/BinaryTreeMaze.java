@@ -92,7 +92,7 @@ public class BinaryTreeMaze implements TwoDeeOrthoMaze {
 		}
 		//Otherwise, use the pseudorandom generator, which should only be used here so that
 		//the other path methods can derive their values from leftPath()
-		return generator.getBoolean();
+		return generator.getBoolean(row + column);
 	}
 
 	@Override
