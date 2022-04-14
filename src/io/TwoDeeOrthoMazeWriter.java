@@ -9,7 +9,7 @@ import maze.TwoDeeOrthoMaze;
  * @author Jesse Woods
  *
  */
-public class twoDeeOrthoMazeWriter {
+public class TwoDeeOrthoMazeWriter {
 	
 	/**
 	 * Character to be used in representing walls.
@@ -27,6 +27,11 @@ public class twoDeeOrthoMazeWriter {
 	private static char node = 'O';
 	
 	/**
+	 * Newline character, for separating rows.
+	 */
+	private static char newLine = '\n';
+	
+	/**
 	 * Holds the maze to be written out.
 	 */
 	private TwoDeeOrthoMaze maze;
@@ -36,7 +41,7 @@ public class twoDeeOrthoMazeWriter {
 	 * 
 	 * @param input
 	 */
-	public twoDeeOrthoMazeWriter(TwoDeeOrthoMaze input) {
+	public TwoDeeOrthoMazeWriter(TwoDeeOrthoMaze input) {
 		this.maze = input;
 	}
 	
@@ -58,16 +63,19 @@ public class twoDeeOrthoMazeWriter {
 				addWall(maze.upPath(i, j), mazeSB);
 				mazeSB.append(wall);
 			}
+			mazeSB.append(newLine);
 			for(int j = 0; j < maze.width(); j++) {//Iterates the left/right paths and nodes
-				addWall(maze.upPath(i, j), mazeSB);
+				addWall(maze.leftPath(i, j), mazeSB);
 				mazeSB.append(node);
-				addWall(maze.upPath(i, j), mazeSB);
+				addWall(maze.rightPath(i, j), mazeSB);
 			}
+			mazeSB.append(newLine);
 			for(int j = 0; j < maze.width(); j++) {//Iterates the down paths
 				mazeSB.append(wall);
 				addWall(maze.downPath(i, j), mazeSB);
 				mazeSB.append(wall);
 			}
+			mazeSB.append(newLine);
 		}
 		
 		return mazeSB.toString();
@@ -78,12 +86,12 @@ public class twoDeeOrthoMazeWriter {
 	 * @param isWall whether this is meant to be a wall or not.
 	 * @param mazeSB the StringBuilder to add the character to.
 	 */
-	private void addWall(boolean isWall, StringBuilder mazeSB) {
-		if(isWall) {
-			mazeSB.append(wall);
+	private void addWall(boolean notWall, StringBuilder mazeSB) {
+		if(notWall) {
+			mazeSB.append(path);
 		}
 		else {
-			mazeSB.append(path);
+			mazeSB.append(wall);
 		}
 	}
 }
