@@ -19,40 +19,84 @@ import booleangenerator.DefinedValuesGenerator;
  */
 public class BinaryTreeMazeTest {
 
-	
+	/**
+	 * A maze in which all paths are up/down, except the topmost row.
+	 * Should be shaped like this:
+	 * OLLLL
+	 * UUUUU
+	 * UUUUU
+	 * UUUUU
+	 * UUUUU
+	 */
 	private TwoDeeOrthoMaze alwaysUpMaze;
-	
-	private TwoDeeOrthoMaze alwaysLeftMaze;
-	
-	private TwoDeeOrthoMaze alternatingLeftUpMaze;
+	private static int alwaysUpMazeHeight = 5;
+	private static int alwaysUpMazeWidth = 5;
 	
 	/**
-	 * A boolean array that will return true on odd and false on even in the DefinedValuesGenerator.
+	 * A maze in which all paths are left/right, except the leftmost column.
+	 * Should be shaped like this (O's are walls):
+	 * Should be shaped like this:
+	 * OLLLL
+	 * ULLLL
+	 * ULLLL
+	 * ULLLL
+	 * ULLLL
 	 */
-	private static boolean[] booleanArray = {false, true, false, true};
+	private TwoDeeOrthoMaze alwaysLeftMaze;
+	private static int alwaysLeftMazeHeight = 6;
+	private static int alwaysLeftMazeWidth = 6;
+	
+	/**
+	 * A maze in which paths alternate left/right and up/down except the topmost row (always left/right) and
+	 * the leftmost column (always up/down).
+	 * Should be shaped like this:
+	 * OLLLLL
+	 * ULULUL
+	 * ULULUL
+	 * ULULUL
+	 * ULULUL
+	 */
+	private TwoDeeOrthoMaze alternatingLeftUpMaze;
+	private static int alternatingLeftUpMazeHeight = 6;
+	private static int alternatingLeftUpMazeWidth = 5;
+	private static boolean[] booleanArray = {false, true, false, true, false, true};
 	
     /**
      * Create a new instance of the generator before each test.
      */ 
     @Before
     public void setUp() {
-        alwaysUpMaze = new BinaryTreeMaze(5, 5, new AlwaysFalseGenerator());
-        alwaysLeftMaze = new BinaryTreeMaze(6, 6, new AlwaysTrueGenerator());
-        alternatingLeftUpMaze = new BinaryTreeMaze(10, 10, new DefinedValuesGenerator(booleanArray));
+        alwaysUpMaze = new BinaryTreeMaze(alwaysUpMazeHeight, alwaysUpMazeWidth, new AlwaysFalseGenerator());
+        alwaysLeftMaze = new BinaryTreeMaze(alwaysLeftMazeHeight, alwaysLeftMazeWidth, new AlwaysTrueGenerator());
+        alternatingLeftUpMaze = new BinaryTreeMaze(alternatingLeftUpMazeHeight, alternatingLeftUpMazeWidth, new DefinedValuesGenerator(booleanArray));
     }
+    
+	@Test
+	public void testHeight() {
+		assertEquals(alwaysUpMazeHeight, alwaysUpMaze.height());
+		assertEquals(alwaysLeftMazeHeight, alwaysLeftMaze.height());
+		assertEquals(alternatingLeftUpMazeHeight, alternatingLeftUpMaze.height());
+	}
 	
 	@Test
-	public void testDownPath() {
+	public void testWidth() {
+		assertEquals(alwaysUpMazeWidth, alwaysUpMaze.width());
+		assertEquals(alwaysLeftMazeWidth, alwaysLeftMaze.width());
+		assertEquals(alternatingLeftUpMazeWidth, alternatingLeftUpMaze.width());
+	}
+	
+	@Test
+	public void testLeftPath() {
 		fail("Not yet implemented");
 	}
 	
 	@Test
-	public void testDownPath() {
+	public void testRightPath() {
 		fail("Not yet implemented");
 	}
 	
 	@Test
-	public void testDownPath() {
+	public void testUpPath() {
 		fail("Not yet implemented");
 	}
 	
