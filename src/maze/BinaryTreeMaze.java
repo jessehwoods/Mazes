@@ -1,5 +1,7 @@
 package maze;
 
+import booleangenerator.BooleanGenerator;
+
 /**
  * Implements the binary tree maze generation algorithm, which generates the maze by randomly
  * assigning one of two paths (left or up in this case) to all nodes except the row and column
@@ -26,9 +28,9 @@ public class BinaryTreeMaze implements TwoDeeOrthoMaze {
 	private int height;
 	
 	/**
-	 * Stores the seed to be used in generating random values for the maze.
+	 * Object that generates a boolean value for use in generating the maze.
 	 */
-	private int seed;
+	private BooleanGenerator generator;
 
 	/**
 	 * Paramaterized constructor including seed to be used in pseudorandom number generator.
@@ -36,10 +38,10 @@ public class BinaryTreeMaze implements TwoDeeOrthoMaze {
 	 * @param width width of the maze to be generated.
 	 * @param seed seed to be used in pseudorandom number generation.
 	 */
-	public BinaryTreeMaze(int height, int width, int seed) {
+	public BinaryTreeMaze(int height, int width, BooleanGenerator generator) {
 		this.height = height;
 		this.width = width;
-		this.seed = seed;
+		this.generator = generator;
 	}
 	
 	@Override
@@ -90,7 +92,7 @@ public class BinaryTreeMaze implements TwoDeeOrthoMaze {
 		}
 		//Otherwise, use the pseudorandom generator, which should only be used here so that
 		//the other path methods can derive their values from leftPath()
-		return pseudoRandomBoolean(row, column);
+		return generator.getBoolean();
 	}
 
 	@Override
@@ -103,22 +105,6 @@ public class BinaryTreeMaze implements TwoDeeOrthoMaze {
 		}
 		//Otherwise, check if the right neighbor has a leftward path
 		return leftPath(row, column + 1);
-	}
-	
-	/**
-	 * Generates a pseudorandom boolean based on the height, width, and random seed of the maze,
-	 * the requested row, and the requested column. Because this is not random, the results for the same 
-	 * coordinate of the same maze will always be the same. 
-	 * 
-	 * However, it will only have a single output for any given coordinate.
-	 *
-	 * This uses a linear congruential sequence. I'll be using the closed form equation:
-	 * X_n+k = (akX_n + (a^k − 1)c/b) mod m, k ≥ 0, n ≥ 0
-	 *
-	 * @return a pseudorandom value of true or false based on the stored seed.
-	 */
-	private boolean pseudoRandomBoolean(int row, int column) {
-		//TODO
 	}
 	
 	/**
