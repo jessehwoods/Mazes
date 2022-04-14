@@ -7,7 +7,6 @@ import org.junit.Test;
 
 import booleangenerator.AlwaysFalseGenerator;
 import booleangenerator.AlwaysTrueGenerator;
-import booleangenerator.BooleanGenerator;
 import booleangenerator.DefinedValuesGenerator;
 
 /**
@@ -22,14 +21,14 @@ public class BinaryTreeMazeTest {
 	/**
 	 * A maze in which all paths are up/down, except the topmost row.
 	 * Should be shaped like this:
-	 * OLLLL
-	 * UUUUU
-	 * UUUUU
-	 * UUUUU
-	 * UUUUU
+	 * OLLLLLL
+	 * UUUUUUU
+	 * UUUUUUU
+	 * UUUUUUU
+	 * UUUUUUU
 	 */
 	private TwoDeeOrthoMaze alwaysUpMaze;
-	private static int alwaysUpMazeHeight = 5;
+	private static int alwaysUpMazeHeight = 7;
 	private static int alwaysUpMazeWidth = 5;
 	
 	/**
@@ -41,10 +40,12 @@ public class BinaryTreeMazeTest {
 	 * ULLLL
 	 * ULLLL
 	 * ULLLL
+	 * ULLLL
+	 * ULLLL
 	 */
 	private TwoDeeOrthoMaze alwaysLeftMaze;
-	private static int alwaysLeftMazeHeight = 6;
-	private static int alwaysLeftMazeWidth = 6;
+	private static int alwaysLeftMazeHeight = 5;
+	private static int alwaysLeftMazeWidth = 7;
 	
 	/**
 	 * A maze in which paths alternate left/right and up/down except the topmost row (always left/right) and
