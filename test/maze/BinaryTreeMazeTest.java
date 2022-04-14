@@ -152,6 +152,7 @@ public class BinaryTreeMazeTest {
 		//Test the alwaysUpMaze
 		
 		//Test the alternatingLeftUpMaze
+		//TODO
 		
 	}
 	
@@ -162,6 +163,7 @@ public class BinaryTreeMazeTest {
 		//Test the alwaysUpMaze
 		
 		//Test the alternatingLeftUpMaze
+		//TODO
 		
 	}
 
