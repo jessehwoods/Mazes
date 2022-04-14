@@ -82,8 +82,8 @@ public class BinaryTreeMaze implements TwoDeeOrthoMaze {
 	public boolean leftPath(int row, int column) {
 		//Throw an exception if node is invalid
 		validateCoordinates(row, column);
-		//If it's the top row, then if has to be left
-		if(row == 0) {
+		//If it's the top row, then if has to be left, unless it's root
+		if(row == 0 && column != 0) {
 			return true;
 		}
 		//If it's the leftmost column, then it cannot be going left
