@@ -19,7 +19,7 @@ public class DefinedValuesGenerator implements BooleanGenerator {
 	}
 	
 	@Override
-	public boolean getBoolean(int kValue) {
+	public boolean getBoolean(int value) {
 		return array[kValue % array.length];
 	}
 

@@ -9,7 +9,7 @@ package booleangenerator;
 public class AlwaysFalseGenerator implements BooleanGenerator{
 
 	@Override
-	public boolean getBoolean(int kValue) {
+	public boolean getBoolean(int value) {
 		return false;
 	}
 	

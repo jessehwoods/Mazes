@@ -21,7 +21,7 @@ public class PseudoRandomBooleanGenerator implements BooleanGenerator{
 	}
 
 	@Override
-	public boolean getBoolean(int kValue) {
+	public boolean getBoolean(int value) {
 		// TODO Auto-generated method stub
 		return false;
 	}
