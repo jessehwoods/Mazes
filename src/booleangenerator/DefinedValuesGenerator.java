@@ -15,11 +15,17 @@ public class DefinedValuesGenerator implements BooleanGenerator {
 	boolean[] array;
 	
 	public DefinedValuesGenerator(boolean[] array) {
+		if(array == null || array.length <= 0) {
+			throw new IllegalArgumentException("Array of boolean values must contain at least 1 value.");
+		}
 		this.array = array;
 	}
 	
 	@Override
 	public boolean getBoolean(int value) {
+		if(value < 0) {
+			throw new IllegalArgumentException("Value cannot be negative.");
+		}
 		return array[value % array.length];
 	}
 
