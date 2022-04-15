@@ -13,17 +13,20 @@ public class TwoDeeOrthoMazeWriter {
 	/**
 	 * Character to be used in representing walls.
 	 */
-	private static char wall = '#';
+	private static char wall = ' ';
 	
 	/**
-	 * Character to be used in representing paths.
+	 * Characters to be used in representing paths.
 	 */
-	private static char path = ' ';
+	private static char pathUp = 8593;
+	private static char pathDown = 8595;
+	private static char pathLeft = 8592;
+	private static char pathRight = 8594;
 	
 	/**
 	 * Character to be used in representing nodes.
 	 */
-	private static char node = 'O';
+	private static char node = 8864;
 	
 	/**
 	 * Newline character, for separating rows.
@@ -59,19 +62,19 @@ public class TwoDeeOrthoMazeWriter {
 		for(int i = 0; i < maze.height(); i++) {//Iterates rows
 			for(int j = 0; j < maze.width(); j++) {//Iterates the up paths
 				mazeSB.append(wall);
-				addWall(maze.upPath(i, j), mazeSB);
+				addWall(maze.upPath(i, j), pathUp, mazeSB);
 				mazeSB.append(wall);
 			}
 			mazeSB.append(newLine);
 			for(int j = 0; j < maze.width(); j++) {//Iterates the left/right paths and nodes
-				addWall(maze.leftPath(i, j), mazeSB);
+				addWall(maze.leftPath(i, j), pathLeft, mazeSB);
 				mazeSB.append(node);
-				addWall(maze.rightPath(i, j), mazeSB);
+				addWall(maze.rightPath(i, j), pathRight, mazeSB);
 			}
 			mazeSB.append(newLine);
 			for(int j = 0; j < maze.width(); j++) {//Iterates the down paths
 				mazeSB.append(wall);
-				addWall(maze.downPath(i, j), mazeSB);
+				addWall(maze.downPath(i, j), pathDown, mazeSB);
 				mazeSB.append(wall);
 			}
 			mazeSB.append(newLine);
@@ -85,9 +88,9 @@ public class TwoDeeOrthoMazeWriter {
 	 * @param isWall whether this is meant to be a wall or not.
 	 * @param mazeSB the StringBuilder to add the character to.
 	 */
-	private void addWall(boolean notWall, StringBuilder mazeSB) {
+	private void addWall(boolean notWall, char toAppend, StringBuilder mazeSB) {
 		if(notWall) {
-			mazeSB.append(path);
+			mazeSB.append(toAppend);
 		}
 		else {
 			mazeSB.append(wall);
